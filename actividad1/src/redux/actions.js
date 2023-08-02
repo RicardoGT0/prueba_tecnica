@@ -14,6 +14,13 @@ export const setSort = (sort) => {
     }
 }
 
+export const setFavorite = (pokemon) => {
+    return {
+        type: action.SETFAVORITE,
+        payload: pokemon,
+    }
+}
+
 const getPokemons = async (pokemonList) => {
     let requests = pokemonList.map(pokemon => axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon));
     let pokemons = [];
@@ -26,7 +33,6 @@ const getPokemons = async (pokemonList) => {
                 image: response.data.sprites.other["official-artwork"].front_default,
                 type: response.data.types.map((type) => type.type.name),
                 abilities: response.data.abilities.map((ability) => ability.ability.name),
-                favorite: false,
                 species: response.data.species.url,
             }
             pokemons.push(pokemon);
@@ -39,7 +45,7 @@ const getPokemons = async (pokemonList) => {
 
 function getEvolvesTo(name, obj) {
     if (obj.species.name === name) {
-        return obj.evolves_to.map((evolution)=>evolution.species.name);
+        return obj.evolves_to.map((evolution) => evolution.species.name);
     }
 
     for (let i = 0; i < obj.evolves_to.length; i++) {

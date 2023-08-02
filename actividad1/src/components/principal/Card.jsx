@@ -1,9 +1,14 @@
+import { useDispatch, useSelector } from 'react-redux'
 import colors from '../utils/colors'
 import './Card.css'
 import MiniCard from './MiniCard'
+import { setFavorite } from '../../redux/actions'
 
-const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evolutions = [], favorite=false }) => {
-  //TODO: function Favorite
+const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evolutions = [] }) => {
+  const dispatch = useDispatch()
+  const { allFavorites } = useSelector((state) => state);
+
+  const favorite = allFavorites.find(favorite => favorite.id === id)
 
   let color1
   let color2
@@ -19,7 +24,7 @@ const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evol
   return (
     <div className='card' style={{ backgroundImage: `linear-gradient(to right, ${color1} , ${color2} )` }}>
       <button className='buttonCard'
-        onClick={()=>{}}
+        onClick={()=>{dispatch(setFavorite({ id, name, image, type, abilities, evolutions}))}}
       >{favorite ? '💜' : '🖤'}</button>
       <div>
         <img className='pokeImage' src={image} alt={name} />

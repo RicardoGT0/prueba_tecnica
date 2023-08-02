@@ -2,8 +2,8 @@ import * as action from "./action_type";
 
 const initialState = {
     pokeShow: [], //pokemons que se muestran de la busqueda
-    allPokemon: [],
-    pokefound: [],
+    allFavorites: [], //todos los pokemons favoritos
+    pokefound: [], //todos los pokemons filtrados y ordenados
     filter: {},
     sort: {}
 }
@@ -17,9 +17,29 @@ export default function rootReducer(state = initialState, { type, payload }) {
                 pokeShow: [payload],
             }
 
+        case action.SETFAVORITE:
+            const favorite = state.allFavorites.find(favorite => favorite.id === payload.id)
+
+            if (favorite) {
+                return {
+                    ...state,
+                    allFavorites: state.allFavorites.filter(favorite => favorite.id !== payload.id),
+                    pokefound: state.pokefound.filter(favorite => favorite.id !== payload.id)
+                
+                }
+            }          
+            else {
+                return {
+                    ...state,
+                    allFavorites: [...state.allFavorites, payload],
+                    pokefound: [...state.pokefound, payload]
+                }
+            }
+            
+
         case action.SETFILTER:
             const fil = { ...state.filter, ...payload }
-            const orig = state.allPokemon.filter((pok) => {
+            const orig = state.allFavorites.filter((pok) => {
                 if (!fil['Origen'])
                     return pok
                 else {
