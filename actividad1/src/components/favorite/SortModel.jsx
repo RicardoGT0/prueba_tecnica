@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setSort } from '../../redux/actions';
-//import './FilterModel.css'
 
 
 export default function SortModel({ name, text, listOfSorters }) {

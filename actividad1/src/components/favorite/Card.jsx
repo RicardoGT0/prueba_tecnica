@@ -19,29 +19,29 @@ const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evol
   }
 
   return (
-    <div className='favoriteCard' style={{ backgroundImage: `linear-gradient(to right, ${color1} , ${color2} )` }}>
+    <div className='favoriteCard miniCard' style={{ backgroundImage: `linear-gradient(to right, ${color1} , ${color2} )` }}>
       <button className='buttonCard'
         onClick={() => { dispatch(setFavorite({ id, name, image, type, abilities, evolutions })) }}
       >💜</button>
       <img className='miniPokeImage' src={image} alt={name} />
-      <div>
+      <div className='divDescription'>
         <div className='divCardID'># {id}</div>
         <div className='divCardName'>{name}</div>
         <div className='divAbilities'>{abilities.join('/')}</div>
+      </div>
         <div className='divCardEvolutions'>
           {
             evolutions.map((evolution, index) => <MiniCard
-              key={index}
-              id={evolution.id}
-              name={evolution.name}
-              image={evolution.image}
-              type={evolution.type}
-              abilities={evolution.abilities}
-              evolutions={evolution.evolutions}
+            key={index}
+            id={evolution.id}
+            name={evolution.name}
+            image={evolution.image}
+            type={evolution.type}
+            abilities={evolution.abilities}
+            evolutions={evolution.evolutions}
             />)
           }
         </div>
-      </div>
     </div>
   )
 }

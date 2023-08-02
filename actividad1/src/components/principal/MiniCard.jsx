@@ -17,10 +17,11 @@ const MiniCard = ({ id = 0, name = '', image = null, type = [], abilities = [], 
     return (
         <div className='card miniCard' style={{ backgroundImage: `linear-gradient(to right, ${color1} , ${color2} )` }}>
             <img className='miniPokeImage' src={image} alt={name} />
-            <div>
+            <div className='divDescription'>
                 <div className='divCardID'># {id}</div>
                 <div className='divCardName'>{name}</div>
                 <div className='divAbilities'>{abilities.join('/')}</div>
+            </div>
                 <div className='divCardEvolutions'>
                     {
                         evolutions.map((evolution, index) => <MiniCard
@@ -34,7 +35,6 @@ const MiniCard = ({ id = 0, name = '', image = null, type = [], abilities = [], 
                         />)
                     }
                 </div>
-            </div>
 
         </div>
     )

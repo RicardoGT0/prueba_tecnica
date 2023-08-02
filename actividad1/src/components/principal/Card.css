@@ -6,14 +6,6 @@
     width: 30%;    
 }
 
-.divButton {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 5px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-}
-
 .buttonCard {
     font-size: medium;
     font-style: oblique;
@@ -24,43 +16,12 @@
     cursor: pointer;
 }
 
-
-
-.descriptionBox {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 5%;
-    padding-left: 3%;
-    padding-right: 3%;
-}
-
 .pokeImage{
     width: 100%;
-}
-
-.description {
-    display: flex;
-    align-items: center;
-    text-align: center;
 }
 
 .divCardEvolutions{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-@media (max-width:420px) {
-    .descriptionBox {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-    }
-
-    .divButton {
-        padding-top: 10px;
-        padding-right: 5px;
-    }
-
-    
 }

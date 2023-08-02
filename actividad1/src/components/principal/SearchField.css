@@ -1,11 +1,3 @@
-.divSearchbar {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .divSearch {
     display: flex;
     flex-direction: row;
@@ -24,14 +16,6 @@
     border-width: 7px;
 }
 
-.divFilter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
 .filterButton {
     border-radius: 20px;
     font-size: large;
@@ -48,8 +32,4 @@
 
 .filterButton:active {
     border-color: yellowgreen;
-}
-
-.searchBarIcon {
-    width: 120px;
 }

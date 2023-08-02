@@ -24,7 +24,7 @@ const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evol
   return (
     <div className='card' style={{ backgroundImage: `linear-gradient(to right, ${color1} , ${color2} )` }}>
       <button className='buttonCard'
-        onClick={()=>{dispatch(setFavorite({ id, name, image, type, abilities, evolutions}))}}
+        onClick={() => { dispatch(setFavorite({ id, name, image, type, abilities, evolutions })) }}
       >{favorite ? '💜' : '🖤'}</button>
       <div>
         <img className='pokeImage' src={image} alt={name} />
