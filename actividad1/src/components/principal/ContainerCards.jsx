@@ -12,7 +12,6 @@ const ContainerCards = () => {
       image={pokemon.image}
       type={pokemon.type}
       abilities={pokemon.abilities}
-      favorite={pokemon.favorite}
       evolutions={pokemon.evolutions}
       />
     )
