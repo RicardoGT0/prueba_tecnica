@@ -40,6 +40,8 @@ const Card = ({ id = 0, name = '', image = null, type = [], abilities = [], evol
               name={evolution.name}
               image={evolution.image}
               type={evolution.type}
+              abilities={evolution.abilities}
+              evolutions={evolution.evolutions}
             />)
           }
         </div>

@@ -2,7 +2,7 @@ import colors from '../utils/colors'
 import './Card.css'
 import './MiniCard.css'
 
-const MiniCard = ({ id, name, image, type }) => {
+const MiniCard = ({ id = 0, name = '', image = null, type = [], abilities = [], evolutions = [] }) => {
     let color1
     let color2
 
@@ -20,6 +20,20 @@ const MiniCard = ({ id, name, image, type }) => {
             <div>
                 <div className='divCardID'># {id}</div>
                 <div className='divCardName'>{name}</div>
+                <div className='divAbilities'>{abilities.join('/')}</div>
+                <div className='divCardEvolutions'>
+                    {
+                        evolutions.map((evolution, index) => <MiniCard
+                            key={index}
+                            id={evolution.id}
+                            name={evolution.name}
+                            image={evolution.image}
+                            type={evolution.type}
+                            abilities={evolution.abilities}
+                            evolutions={evolution.evolutions}
+                        />)
+                    }
+                </div>
             </div>
 
         </div>
