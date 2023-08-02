@@ -1,7 +1,5 @@
-
 import axios from 'axios'
 import * as action from './action_type'
-
 
 export const setFilter = (filter) => {
     return {
@@ -39,19 +37,29 @@ const getPokemons = async (pokemonList) => {
     return pokemons;
 }
 
+function getEvolvesTo(name, obj) {
+    if (obj.species.name === name) {
+        return obj.evolves_to.map((evolution)=>evolution.species.name);
+    }
+
+    for (let i = 0; i < obj.evolves_to.length; i++) {
+        const nextLevel = getEvolvesTo(name, obj.evolves_to[i]);
+
+        if (nextLevel) {
+            return nextLevel;
+        }
+    }
+    return null;
+}
+
 export const getPokemon = (input) => async (dispatch) => {
     try {
         const [pokemon] = await getPokemons([input])
-
         const species = await axios.get(pokemon.species)
-
         const evolution_chain = await axios.get(species.data.evolution_chain.url)
-
-        const evolution_chain_data = evolution_chain.data.chain.evolves_to
-        const evolutionsNames = evolution_chain_data.map((evolution) => evolution.species.name)
-
-       pokemon.evolutions = await getPokemons(evolutionsNames)
-
+        const evolution_chain_data = evolution_chain.data.chain
+        const evolutionsNames = getEvolvesTo(pokemon.name, evolution_chain_data)
+        pokemon.evolutions = await getPokemons(evolutionsNames)
 
         dispatch({
             type: action.GETPOKEMON,
