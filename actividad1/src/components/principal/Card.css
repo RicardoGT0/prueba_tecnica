@@ -1,0 +1,74 @@
+.card {
+    border-style: groove;
+    border-width: 7px;
+    border-color: white;
+    margin-top: 10px;
+    width: 30%;    
+}
+
+.divButton {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.buttonCard {
+    font-size: medium;
+    font-style: oblique;
+    font-weight: bold;
+    color: red;
+    border-style: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+
+.descriptionBox {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.imgChar {
+    border-style: groove;
+    border-color: black;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+
+.description {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.divCardEvolutions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media (max-width:420px) {
+    .descriptionBox {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .imgChar {
+        max-width: 100%;
+    }
+
+    .divButton {
+        padding-top: 10px;
+        padding-right: 5px;
+    }
+
+    
+}

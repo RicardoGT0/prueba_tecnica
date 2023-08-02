@@ -1,0 +1,9 @@
+.container-favorite{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: #f3f4f4;
+    padding: 20px;
+    overflow-y: auto;
+
+}

@@ -1,0 +1,9 @@
+.miniCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.miniPokeImage{
+    width: 100%;
+}
